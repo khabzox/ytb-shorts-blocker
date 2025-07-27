@@ -222,7 +222,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repo if you find it helpful! ⭐**
 
-[![Star History Chart](https://api.star-history.com/svg?repos=khabzox/ytb-shorts-blocker&type=Date)](https://star-history.com/#khabzox/ytb-shorts-blocker&Date)
+## Star History
+
+<a href="https://www.star-history.com/#khabzox/ytb-shorts-blocker&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=khabzox/ytb-shorts-blocker&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=khabzox/ytb-shorts-blocker&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=khabzox/ytb-shorts-blocker&type=Date" />
+ </picture>
+</a>
 
 _Made with 💚 by [@khabzox](https://github.com/khabzox)_
 
