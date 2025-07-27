@@ -22,7 +22,7 @@ export const DEFAULT_SETTINGS = {
   whitelistedChannels: [] as string[],
   customCss: '',
   debugMode: false,
-  version: '1.0.0'
+  version: '1.0.4'
 } as const;
 
 export const STORAGE_KEYS = {
@@ -34,7 +34,7 @@ export const STORAGE_KEYS = {
 
 export const APP_CONFIG = {
   NAME: 'YouTube Shorts Blocker',
-  VERSION: '1.0.0',
+  VERSION: '1.0.4',
   AUTHOR: 'khabzox',
   GITHUB_URL: 'https://github.com/khabzox/ytb-shorts-blocker',
   CHROME_STORE_URL: 'https://chrome.google.com/webstore',

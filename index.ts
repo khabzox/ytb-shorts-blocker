@@ -6,7 +6,7 @@
  * Built with functional programming principles.
  * 
  * @package ytb-shorts-blocker
- * @version 1.0.0
+ * @version 1.0.4
  * @author khabzox
  * @license MIT
  */
@@ -58,6 +58,12 @@ export const createBlocker = (settings?: Partial<BlockerSettings>): void => {
 export const initBlocker = (): void => {
   if (!blockerState.settings.enabled) return;
   
+  // Only run in browser environment
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    console.warn('YouTube Shorts Blocker: Not in browser environment');
+    return;
+  }
+  
   setupMutationObserver();
   blockExistingShorts();
   blockerState.isActive = true;
@@ -78,6 +84,7 @@ export const setBlockingMode = (mode: 'hide' | 'remove' | 'redirect'): void => {
 };
 
 export const blockShorts = (): void => {
+  if (typeof document === 'undefined') return;
   blockExistingShorts();
 };
 
@@ -95,6 +102,8 @@ export const getState = (): BlockerState => {
 
 // Utility functions
 export const detectShorts = (): HTMLElement[] => {
+  if (typeof document === 'undefined') return [];
+  
   const selectors = [
     'ytd-rich-grid-media[is-shorts]',
     'ytd-rich-item-renderer[is-shorts]',
@@ -129,26 +138,32 @@ export const blockElement = (element: HTMLElement, mode: 'hide' | 'remove' | 're
 };
 
 export const isYouTubePage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   return window.location.hostname.includes('youtube.com');
 };
 
 export const isShortsPage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   return window.location.pathname.includes('/shorts/');
 };
 
 export const isHomePage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   return window.location.pathname === '/' || window.location.pathname === '/feed/subscriptions';
 };
 
 export const isSearchPage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   return window.location.pathname === '/results';
 };
 
 export const isSubscriptionsPage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   return window.location.pathname === '/feed/subscriptions';
 };
 
 export const isTrendingPage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   return window.location.pathname === '/trending';
 };
 
@@ -159,15 +174,15 @@ const setupMutationObserver = (): void => {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
-                 mutation.addedNodes.forEach((node) => {
-           if (node.nodeType === Node.ELEMENT_NODE) {
-             const element = node as Element;
-             const shortsElements = element.querySelectorAll('ytd-rich-grid-media[is-shorts], ytd-rich-item-renderer[is-shorts]');
-             shortsElements.forEach((short) => {
-               blockElement(short as HTMLElement, blockerState.settings.blockingMode);
-             });
-           }
-         });
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            const element = node as Element;
+            const shortsElements = element.querySelectorAll('ytd-rich-grid-media[is-shorts], ytd-rich-item-renderer[is-shorts]');
+            shortsElements.forEach((short) => {
+              blockElement(short as HTMLElement, blockerState.settings.blockingMode);
+            });
+          }
+        });
       }
     });
   });
@@ -213,7 +228,7 @@ export const BLOCKING_MODES = {
 } as const;
 
 // Package information
-export const VERSION = '1.0.0';
+export const VERSION = '1.0.4';
 export const AUTHOR = 'khabzox';
 export const LICENSE = 'MIT';
 

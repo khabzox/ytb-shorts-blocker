@@ -54,23 +54,23 @@ yarn add @khabzox/ytb-shorts-blocker
 
 #### **Basic Usage (Simple Integration)**
 ```typescript
-import { initYouTubeShortsBlocker } from 'ytb-shorts-blocker';
+import ytbBlocker from '@khabzox/ytb-shorts-blocker';
 
 // Start blocking YouTube Shorts immediately
-initYouTubeShortsBlocker();
+ytbBlocker();
 ```
 
 #### **Advanced Usage (Custom Configuration)**
 ```typescript
 import { 
-  initYouTubeShortsBlocker, 
+  createBlocker, 
   updateSettings,
   setEnabled,
   getSettings 
-} from 'ytb-shorts-blocker';
+} from '@khabzox/ytb-shorts-blocker';
 
 // Initialize with custom settings
-initYouTubeShortsBlocker({
+createBlocker({
   enabled: true,
   blockingMode: 'hide',
   showNotifications: true,
@@ -101,7 +101,7 @@ import {
   blockElement,
   isYouTubePage,
   isShortsPage 
-} from 'ytb-shorts-blocker';
+} from '@khabzox/ytb-shorts-blocker';
 
 // Check if we're on YouTube
 if (isYouTubePage()) {
@@ -116,7 +116,8 @@ if (isYouTubePage()) {
 ### 🎯 **API Reference**
 
 #### Core Functions
-- `initYouTubeShortsBlocker(settings?)` - Initialize the blocker
+- `createBlocker(settings?)` - Initialize the blocker
+- `initBlocker()` - Start the blocker
 - `setEnabled(enabled: boolean)` - Enable/disable blocking
 - `setBlockingMode(mode: 'hide' | 'remove' | 'redirect')` - Set blocking mode
 - `blockShorts()` - Manually block shorts on current page
@@ -129,26 +130,66 @@ if (isYouTubePage()) {
 - `isYouTubePage()` - Check if current page is YouTube
 - `isShortsPage()` - Check if current page is a shorts page
 
+### 🧪 **Quick Test Example**
+
+Create a file called `test.js` and run it with Node.js to test the library:
+
+```javascript
+// test.js
+import { 
+  createBlocker, 
+  initBlocker, 
+  getSettings, 
+  isYouTubePage,
+  VERSION,
+  AUTHOR 
+} from '@khabzox/ytb-shorts-blocker';
+
+console.log(`📦 YouTube Shorts Blocker v${VERSION} by ${AUTHOR}`);
+
+// Initialize with custom settings
+createBlocker({
+  enabled: true,
+  blockingMode: 'hide',
+  debugMode: true
+});
+
+// Get current settings
+const settings = getSettings();
+console.log('⚙️ Current settings:', settings);
+
+// Check if we're on YouTube (will be false in Node.js)
+console.log('🌐 Is YouTube page:', isYouTubePage());
+
+console.log('✅ Library loaded successfully!');
+```
+
+Run it:
+```bash
+node test.js
+```
+
 ## 🎯 **Use Cases & Project Types**
 
 ### **🌐 Browser Extensions**
 ```typescript
 // Content script for a browser extension
-import { initYouTubeShortsBlocker } from 'ytb-shorts-blocker';
+import { createBlocker, initBlocker } from '@khabzox/ytb-shorts-blocker';
 
 // Auto-block shorts when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  initYouTubeShortsBlocker({
+  createBlocker({
     blockingMode: 'hide',
     debugMode: false
   });
+  initBlocker();
 });
 ```
 
 ### **📱 Progressive Web Apps (PWAs)**
 ```typescript
 // PWA that enhances YouTube experience
-import { detectShorts, blockElement } from 'ytb-shorts-blocker';
+import { detectShorts, blockElement, isYouTubePage } from '@khabzox/ytb-shorts-blocker';
 
 // Custom PWA logic
 if (isYouTubePage()) {
@@ -163,14 +204,15 @@ if (isYouTubePage()) {
 ### **🎮 Gaming/Productivity Apps**
 ```typescript
 // Focus app that blocks distractions
-import { initYouTubeShortsBlocker, updateSettings } from 'ytb-shorts-blocker';
+import { createBlocker, initBlocker, updateSettings } from '@khabzox/ytb-shorts-blocker';
 
 // Focus mode functions
 const startFocusMode = () => {
-  initYouTubeShortsBlocker({
+  createBlocker({
     blockingMode: 'remove',
     showNotifications: false
   });
+  initBlocker();
 };
 
 const stopFocusMode = () => {
@@ -186,7 +228,7 @@ stopFocusMode();
 ### **🔧 Developer Tools**
 ```typescript
 // Browser dev tools extension
-import { getSettings, updateSettings } from 'ytb-shorts-blocker';
+import { getSettings, updateSettings } from '@khabzox/ytb-shorts-blocker';
 
 // Dev tools functions
 const toggleBlocking = () => {
@@ -206,7 +248,7 @@ changeMode('remove');
 ### **📊 Analytics & Research Tools**
 ```typescript
 // Research tool to study YouTube behavior
-import { detectShorts, isYouTubePage } from 'ytb-shorts-blocker';
+import { detectShorts, isYouTubePage } from '@khabzox/ytb-shorts-blocker';
 
 const analyzePage = () => {
   if (isYouTubePage()) {
@@ -222,7 +264,7 @@ analyzePage();
 ### **🎨 Custom YouTube Themes**
 ```typescript
 // Custom YouTube theme/styling
-import { detectShorts, blockElement } from 'ytb-shorts-blocker';
+import { detectShorts } from '@khabzox/ytb-shorts-blocker';
 
 const applyCustomStyling = () => {
   detectShorts().forEach(short => {
@@ -238,7 +280,7 @@ applyCustomStyling();
 ### **🤖 AI/ML Projects**
 ```typescript
 // AI project analyzing YouTube content
-import { detectShorts, isShortsPage } from 'ytb-shorts-blocker';
+import { detectShorts, isShortsPage } from '@khabzox/ytb-shorts-blocker';
 
 const analyzeContent = () => {
   if (isShortsPage()) {

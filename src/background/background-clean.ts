@@ -21,7 +21,7 @@ chrome.runtime.onInstalled.addListener((details) => {
         whitelistedChannels: [],
         customCss: '',
         debugMode: false,
-        version: '1.0.0'
+        version: '1.0.4'
       }
     });
     

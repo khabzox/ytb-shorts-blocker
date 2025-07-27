@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Block YouTube Shorts and keep your feed clean",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "bun run build:content && bun run build:background && bun run build:popup && bun run build:css && bun run build:manifest && bun run build:copy-files && bun run copy-background",
+    "build": "bun run build:library && bun run build:content && bun run build:background && bun run build:popup && bun run build:css && bun run build:manifest && bun run build:copy-files && bun run copy-background",
+    "build:library": "bun build index.ts --outdir dist --minify --target node",
     "build:content": "bun build src/content/content.ts --outdir dist/content --minify",
     "build:background": "bun build src/background/background-clean.ts --outdir dist/background --minify",
     "build:popup": "bun build src/popup/popup.ts --outdir dist/popup --minify",

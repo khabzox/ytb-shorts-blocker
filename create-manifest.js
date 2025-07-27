@@ -4,7 +4,7 @@ import fs from 'fs';
 const manifest = {
   "manifest_version": 3,
   "name": "YTB Shorts Blocker",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Block YouTube Shorts and keep your feed clean",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["*://*.youtube.com/*"],
