@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-// Simple Tailwind CSS build script
+// Custom CSS build script for YouTube Shorts Blocker popup
 const outputFile = 'dist/popup/popup.css';
 
 // Ensure dist/popup directory exists
@@ -10,9 +10,9 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// Create a CSS file with the essential Tailwind classes we need
+// Create a CSS file with custom utility classes for the popup
 const outputCSS = `
-/* Tailwind CSS for YouTube Shorts Blocker Popup */
+/* Custom CSS for YouTube Shorts Blocker Popup */
 * {
   margin: 0;
   padding: 0;
@@ -192,4 +192,4 @@ body {
 
 // Write the output CSS file
 fs.writeFileSync(outputFile, outputCSS);
-console.log('✅ Tailwind CSS built successfully!'); 
+console.log('✅ Custom CSS built successfully!'); 
