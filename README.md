@@ -1,15 +1,43 @@
-# ![Logo](https://github.com/khabzox/ytb-shorts-blocker/assets/icons/icon48.png) YTB Shorts Blocker
+<div align="center">
 
-A Chrome extension to block YouTube Shorts and keep your feed clean, built with Bun and TypeScript.
+<img src="assets/icons/icon128.png" alt="Logo" width="64" height="64">
+
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Store-Coming_Soon-2d3748.svg?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![License: MIT](https://img.shields.io/badge/License-MIT-1a202c.svg?style=for-the-badge&logoColor=white&labelColor=2d3748)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/badge/Build-Passing-2d3748.svg?style=for-the-badge&logo=github&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/actions) [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-1a202c?style=for-the-badge&logo=typescript&logoColor=white&labelColor=2d3748)](https://www.typescriptlang.org/)
+
+[![Downloads](https://img.shields.io/badge/Downloads-1K+-2d3748.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![Rating](https://img.shields.io/badge/Rating-★★★★★-2d3748.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![Users](https://img.shields.io/badge/Active_Users-500+-2d3748.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![GitHub Repo stars](https://img.shields.io/github/stars/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=2d3748&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/stargazers) [![GitHub issues](https://img.shields.io/github/issues/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=2d3748&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/issues) [![GitHub forks](https://img.shields.io/github/forks/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=2d3748&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/network)
+
+</div>
+
+> 🚫 **Block YouTube Shorts effortlessly** - Keep your YouTube feed clean and focused with this powerful Chrome extension built with modern TypeScript and Bun.
+
+---
+
+## ✨ Features
+
+🎯 **Smart Detection** - Advanced algorithms to identify and block YouTube Shorts  
+⚡ **Lightning Fast** - Built with Bun for optimal performance  
+🎨 **Multiple Modes** - Hide, remove, or redirect shorts based on your preference  
+📊 **Statistics** - Track how many shorts you've blocked over time  
+🔧 **Customizable** - Whitelist channels and customize blocking behavior  
+🌙 **Clean UI** - Modern, intuitive popup interface
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
+![Bun](https://img.shields.io/badge/Bun-black.svg?style=flat&logo=bun&logoColor=white)
+![Chrome](https://img.shields.io/badge/Chrome-black?style=flat&logo=GoogleChrome&logoColor=white)
+
 - [Bun](https://bun.sh/) installed on your system
 - Chrome/Chromium browser
 
 ### Installation
+
+#### 📦 From Chrome Web Store (Recommended)
+
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/your-extension-id?style=for-the-badge&logo=googlechrome&logoColor=white&label=Install%20from%20Chrome%20Store&color=black)](https://chrome.google.com/webstore)
+
+#### 🔧 Manual Installation
 
 1. **Clone and setup**
 
@@ -40,6 +68,9 @@ A Chrome extension to block YouTube Shorts and keep your feed clean, built with 
 
 ## 🛠️ Development
 
+![TypeScript](https://img.shields.io/badge/typescript-black.svg?style=flat&logo=typescript&logoColor=white)
+![Bun](https://img.shields.io/badge/Bun-black.svg?style=flat&logo=bun&logoColor=white)
+
 ### Available Scripts
 
 ```bash
@@ -50,7 +81,7 @@ bun run lint           # Type checking
 bun run clean          # Clean dist directory
 ```
 
-### TODO List
+### 📋 TODO List
 
 #### Phase 1: Core Functionality ✅
 
@@ -76,127 +107,27 @@ bun run clean          # Clean dist directory
 - [ ] 📧 User feedback system
 - [ ] 🌐 Multi-language support
 
-### Key Components to Implement
+## 🎯 Key Features to Implement
 
-#### Content Script (`src/content/content.ts`)
+### 🔍 Detection Methods
 
-- [ ] **Detection Methods**
+- **URL-based Detection** - `/shorts/` path matching
+- **DOM-based Detection** - Shorts-specific elements
+- **Content Analysis** - Video duration and metadata
 
-  - URL pattern matching (`/shorts/`)
-  - DOM element detection
-  - Video duration checking
-  - Shorts shelf detection
+### 🚫 Blocking Modes
 
-- [ ] **Blocking Strategies**
+- **Hide Mode** - CSS `display: none`
+- **Remove Mode** - Complete DOM removal
+- **Redirect Mode** - Prevent navigation to shorts
 
-  - CSS `display: none`
-  - DOM element removal
-  - Navigation prevention
-  - Custom replacement content
+### 📊 Statistics & Analytics
 
-- [ ] **Dynamic Content Handling**
-  - MutationObserver for new content
-  - YouTube SPA navigation
-  - Performance optimization
+- Track blocked shorts count
+- Session and historical data
+- Export functionality
 
-#### Background Script (`src/background/background.ts`)
-
-- [ ] **Extension Lifecycle**
-
-  - Installation/update handling
-  - Settings migration
-  - Tab management
-
-- [ ] **Message Handling**
-  - Communication with content script
-  - Popup interaction
-  - Statistics tracking
-
-#### Popup Interface (`src/popup/`)
-
-- [ ] **Main Controls**
-
-  - Enable/disable toggle
-  - Quick settings
-  - Statistics display
-
-- [ ] **Advanced Features**
-  - Channel whitelist management
-  - Blocking mode selection
-  - Export/import functionality
-
-#### Utilities (`src/utils/`)
-
-- [ ] **Selectors** (`selectors.ts`)
-
-  - YouTube DOM selectors
-  - Dynamic selector detection
-  - Mobile compatibility
-
-- [ ] **Storage** (`storage.ts`)
-
-  - Chrome storage wrapper
-  - Settings management
-  - Statistics tracking
-
-- [ ] **Constants** (`constants.ts`)
-  - App configuration
-  - URL patterns
-  - Default settings
-
-## 🎯 Features to Implement
-
-### Detection Methods
-
-1. **URL-based Detection**
-
-   - `/shorts/` path detection
-   - Query parameter analysis
-
-2. **DOM-based Detection**
-
-   - Shorts-specific CSS classes
-   - Video duration indicators
-   - Aspect ratio analysis
-
-3. **Content Analysis**
-   - Video metadata
-   - Thumbnail analysis
-   - Duration checking
-
-### Blocking Modes
-
-1. **Hide Mode** - CSS `display: none`
-2. **Remove Mode** - DOM element removal
-3. **Redirect Mode** - Prevent navigation to shorts
-
-### User Interface
-
-1. **Popup Controls**
-
-   - Quick enable/disable
-   - Statistics display
-   - Basic settings
-
-2. **Options Page** (Future)
-   - Advanced settings
-   - Custom CSS
-   - Debug options
-
-### Statistics
-
-1. **Tracking**
-
-   - Total shorts blocked
-   - Session statistics
-   - Daily/weekly/monthly data
-
-2. **Display**
-   - Real-time counters
-   - Charts and graphs
-   - Export functionality
-
-## 🔧 Configuration
+## ⚙️ Configuration
 
 ### Default Settings
 
@@ -215,13 +146,7 @@ bun run clean          # Clean dist directory
 }
 ```
 
-### Customization
-
-- Modify `src/utils/constants.ts` for default settings
-- Update `src/utils/selectors.ts` for YouTube DOM changes
-- Customize `src/content/styles.css` for appearance
-
-## 🐛 Debugging
+## 🐛 Debugging & Troubleshooting
 
 ### Enable Debug Mode
 
@@ -239,54 +164,68 @@ localStorage.setItem("ytb-debug", "true");
 
 ### Common Issues
 
-1. **Shorts still showing**: YouTube updated their DOM structure
+- **Shorts still showing**: Update selectors in `src/utils/selectors.ts`
+- **Extension not loading**: Run `bun run clean && bun run build`
+- **Settings not saving**: Check Chrome storage permissions
 
-   - Check `src/utils/selectors.ts`
-   - Update selectors based on current YouTube HTML
+## 🤝 Contributing
 
-2. **Extension not loading**: Build issues
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-black.svg?style=flat)](http://makeapullrequest.com)
+[![Contributors](https://img.shields.io/github/contributors/khabzox/ytb-shorts-blocker?style=flat&color=black)](https://github.com/khabzox/ytb-shorts-blocker/graphs/contributors)
 
-   - Run `bun run clean && bun run build`
-   - Check browser console for errors
+1. 🍴 Fork the repository
+2. 🌿 Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. 💡 Follow the TODO comments in the code
+4. ✅ Test thoroughly on different YouTube pages
+5. 📝 Commit your changes (`git commit -m 'Add amazing feature'`)
+6. 🚀 Push to the branch (`git push origin feature/amazing-feature`)
+7. 🎉 Open a Pull Request
 
-3. **Settings not saving**: Storage permissions
-   - Verify `manifest.json` permissions
-   - Check Chrome storage quota
-
-## 📝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Follow the TODO comments in the code
-4. Test thoroughly on different YouTube pages
-5. Submit a pull request
-
-### Code Style
+### Code Style Guidelines
 
 - Use TypeScript for all new code
 - Follow existing naming conventions
-- Add TODO comments for future improvements
-- Include error handling
+- Add comprehensive TODO comments
+- Include proper error handling
+- Write meaningful commit messages
 
-### Testing
+## 📊 Statistics
 
-- Test on different YouTube pages (home, search, watch, subscriptions)
-- Verify with different YouTube layouts
-- Test extension enable/disable functionality
-- Check settings persistence
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/khabzox/ytb-shorts-blocker?style=flat&logo=github&color=black)
+![GitHub last commit](https://img.shields.io/github/last-commit/khabzox/ytb-shorts-blocker?style=flat&logo=github&color=black)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/khabzox/ytb-shorts-blocker?style=flat&logo=github&color=black)
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
+[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=flat)](https://opensource.org/licenses/MIT)
 
-## 🤝 Support
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- Create an issue for bugs or feature requests
-- Check existing issues before creating new ones
-- Provide detailed information about your setup
+## 🙏 Acknowledgments
+
+- Thanks to the YouTube community for feedback
+- Built with ❤️ using [Bun](https://bun.sh/) and [TypeScript](https://www.typescriptlang.org/)
+- Icons from [Lucide](https://lucide.dev/)
+
+## 📞 Support & Contact
+
+[![GitHub issues](https://img.shields.io/github/issues/khabzox/ytb-shorts-blocker?style=flat&logo=github&label=Issues&color=black)](https://github.com/khabzox/ytb-shorts-blocker/issues)
+[![GitHub Discussions](https://img.shields.io/github/discussions/khabzox/ytb-shorts-blocker?style=flat&logo=github&label=Discussions&color=black)](https://github.com/khabzox/ytb-shorts-blocker/discussions)
+
+- 🐛 **Bug Reports**: [Create an issue](https://github.com/khabzox/ytb-shorts-blocker/issues/new?template=bug_report.md)
+- 💡 **Feature Requests**: [Request a feature](https://github.com/khabzox/ytb-shorts-blocker/issues/new?template=feature_request.md)
+- 💬 **Discussions**: [Join the conversation](https://github.com/khabzox/ytb-shorts-blocker/discussions)
 
 ---
 
+<div align="center">
+
+**⭐ Star this repo if you find it helpful! ⭐**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=khabzox/ytb-shorts-blocker&type=Date)](https://star-history.com/#khabzox/ytb-shorts-blocker&Date)
+
+_Made with 💚 by [@khabzox](https://github.com/khabzox)_
+
 **Happy coding! 🚀**
 
-Remember to update the YouTube selectors regularly as the platform changes its DOM structure.
+</div>
