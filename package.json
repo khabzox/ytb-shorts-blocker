@@ -2,9 +2,17 @@
   "name": "ytb-shorts-blocker",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "description": "Block YouTube Shorts and keep your feed clean",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "bun run build:content && bun run build:background && bun run build:popup && bun run build:css && bun run build:manifest && bun run build:copy-files && bun run copy-background",
     "build:content": "bun build src/content/content.ts --outdir dist/content --minify",
@@ -19,7 +27,9 @@
     "dev": "bun run build --watch",
     "clean": "rm -rf dist",
     "reload": "bun run clean && bun run build",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "bun run build",
+    "publish": "bun publish"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -33,8 +43,23 @@
     "shorts",
     "blocker",
     "extension",
-    "chrome"
+    "chrome",
+    "browser-extension",
+    "content-blocker",
+    "productivity",
+    "typescript"
   ],
-  "author": "Your Name",
-  "license": "MIT"
+  "author": "khabzox",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khabzox/ytb-shorts-blocker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/khabzox/ytb-shorts-blocker/issues"
+  },
+  "homepage": "https://github.com/khabzox/ytb-shorts-blocker#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }

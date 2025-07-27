@@ -37,7 +37,226 @@
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 📦 **Install as Library (For Developers)**
+
+```bash
+# Using npm
+npm install ytb-shorts-blocker
+
+# Using bun
+bun add ytb-shorts-blocker
+
+# Using yarn
+yarn add ytb-shorts-blocker
+```
+
+### 🔧 **Usage in Your Project**
+
+#### **Basic Usage (Simple Integration)**
+```typescript
+import { initYouTubeShortsBlocker } from 'ytb-shorts-blocker';
+
+// Start blocking YouTube Shorts immediately
+initYouTubeShortsBlocker();
+```
+
+#### **Advanced Usage (Custom Configuration)**
+```typescript
+import { 
+  initYouTubeShortsBlocker, 
+  updateSettings,
+  setEnabled,
+  getSettings 
+} from 'ytb-shorts-blocker';
+
+// Initialize with custom settings
+initYouTubeShortsBlocker({
+  enabled: true,
+  blockingMode: 'hide',
+  showNotifications: true,
+  blockInSearch: true,
+  blockInHome: true,
+  blockInSubscriptions: true,
+  blockInTrending: false,
+  debugMode: false
+});
+
+// Update settings dynamically
+updateSettings({
+  blockingMode: 'remove',
+  debugMode: true
+});
+
+// Enable/disable blocking
+setEnabled(false);
+
+// Get current settings
+const settings = getSettings();
+```
+
+#### **Manual Control (Custom Implementation)**
+```typescript
+import { 
+  detectShorts, 
+  blockElement,
+  isYouTubePage,
+  isShortsPage 
+} from 'ytb-shorts-blocker';
+
+// Check if we're on YouTube
+if (isYouTubePage()) {
+  // Detect and block shorts manually
+  const shortsElements = detectShorts();
+  shortsElements.forEach(element => {
+    blockElement(element, 'hide');
+  });
+}
+```
+
+### 🎯 **API Reference**
+
+#### Core Functions
+- `initYouTubeShortsBlocker(settings?)` - Initialize the blocker
+- `setEnabled(enabled: boolean)` - Enable/disable blocking
+- `setBlockingMode(mode: 'hide' | 'remove' | 'redirect')` - Set blocking mode
+- `blockShorts()` - Manually block shorts on current page
+- `getSettings()` - Get current settings
+- `updateSettings(settings: Partial<BlockerSettings>)` - Update settings
+
+#### Utility Functions
+- `detectShorts()` - Detect shorts elements on page
+- `blockElement(element, mode)` - Block a specific element
+- `isYouTubePage()` - Check if current page is YouTube
+- `isShortsPage()` - Check if current page is a shorts page
+
+## 🎯 **Use Cases & Project Types**
+
+### **🌐 Browser Extensions**
+```typescript
+// Content script for a browser extension
+import { initYouTubeShortsBlocker } from 'ytb-shorts-blocker';
+
+// Auto-block shorts when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  initYouTubeShortsBlocker({
+    blockingMode: 'hide',
+    debugMode: false
+  });
+});
+```
+
+### **📱 Progressive Web Apps (PWAs)**
+```typescript
+// PWA that enhances YouTube experience
+import { detectShorts, blockElement } from 'ytb-shorts-blocker';
+
+// Custom PWA logic
+if (isYouTubePage()) {
+  const shorts = detectShorts();
+  shorts.forEach(short => {
+    // Add custom PWA overlay
+    blockElement(short, 'redirect');
+  });
+}
+```
+
+### **🎮 Gaming/Productivity Apps**
+```typescript
+// Focus app that blocks distractions
+import { initYouTubeShortsBlocker, updateSettings } from 'ytb-shorts-blocker';
+
+// Focus mode functions
+const startFocusMode = () => {
+  initYouTubeShortsBlocker({
+    blockingMode: 'remove',
+    showNotifications: false
+  });
+};
+
+const stopFocusMode = () => {
+  updateSettings({ enabled: false });
+};
+
+// Usage
+startFocusMode();
+// Later...
+stopFocusMode();
+```
+
+### **🔧 Developer Tools**
+```typescript
+// Browser dev tools extension
+import { getSettings, updateSettings } from 'ytb-shorts-blocker';
+
+// Dev tools functions
+const toggleBlocking = () => {
+  const settings = getSettings();
+  updateSettings({ enabled: !settings.enabled });
+};
+
+const changeMode = (mode: 'hide' | 'remove' | 'redirect') => {
+  updateSettings({ blockingMode: mode });
+};
+
+// Usage
+toggleBlocking();
+changeMode('remove');
+```
+
+### **📊 Analytics & Research Tools**
+```typescript
+// Research tool to study YouTube behavior
+import { detectShorts, isYouTubePage } from 'ytb-shorts-blocker';
+
+const analyzePage = () => {
+  if (isYouTubePage()) {
+    const shortsCount = detectShorts().length;
+    console.log(`Found ${shortsCount} shorts on this page`);
+  }
+};
+
+// Usage
+analyzePage();
+```
+
+### **🎨 Custom YouTube Themes**
+```typescript
+// Custom YouTube theme/styling
+import { detectShorts, blockElement } from 'ytb-shorts-blocker';
+
+const applyCustomStyling = () => {
+  detectShorts().forEach(short => {
+    short.style.border = '2px solid red';
+    short.style.opacity = '0.3';
+  });
+};
+
+// Usage
+applyCustomStyling();
+```
+
+### **🤖 AI/ML Projects**
+```typescript
+// AI project analyzing YouTube content
+import { detectShorts, isShortsPage } from 'ytb-shorts-blocker';
+
+const analyzeContent = () => {
+  if (isShortsPage()) {
+    // AI logic to analyze shorts content
+    const shorts = detectShorts();
+    // Process with AI models...
+    return shorts.length;
+  }
+  return 0;
+};
+
+// Usage
+const shortsCount = analyzeContent();
+```
+
+### 🛠️ **Extension Installation (For End Users)**
+
+#### Prerequisites
 
 ![Bun](https://img.shields.io/badge/Bun-black.svg?style=flat&logo=bun&logoColor=white)
 ![Chrome](https://img.shields.io/badge/Chrome-black?style=flat&logo=GoogleChrome&logoColor=white)
