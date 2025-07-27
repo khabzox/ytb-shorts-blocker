@@ -1,9 +1,9 @@
 {
-  "name": "ytb-shorts-blocker",
+  "name": "@khabzox/ytb-shorts-blocker",
   "module": "index.ts",
   "type": "module",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Block YouTube Shorts and keep your feed clean",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

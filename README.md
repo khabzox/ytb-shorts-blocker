@@ -41,13 +41,13 @@
 
 ```bash
 # Using npm
-npm install ytb-shorts-blocker
+npm install @khabzox/ytb-shorts-blocker
 
 # Using bun
-bun add ytb-shorts-blocker
+bun add @khabzox/ytb-shorts-blocker
 
 # Using yarn
-yarn add ytb-shorts-blocker
+yarn add @khabzox/ytb-shorts-blocker
 ```
 
 ### 🔧 **Usage in Your Project**
