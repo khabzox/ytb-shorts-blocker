@@ -3,10 +3,33 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "version": "1.0.0",
+  "description": "Block YouTube Shorts and keep your feed clean",
+  "scripts": {
+    "dev": "bun run build --watch",
+    "build": "bun run build:content && bun run build:background && bun run build:popup",
+    "build:content": "bun build src/content/content.ts --outdir dist/content --minify",
+    "build:background": "bun build src/background/background.ts --outdir dist/background --minify",
+    "build:popup": "bun build src/popup/popup.ts --outdir dist/popup --minify",
+    "watch": "bun run build --watch",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit",
+    "test": "bun test"
+  },
   "devDependencies": {
+    "@types/chrome": "^0.0.268",
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "keywords": [
+    "youtube",
+    "shorts",
+    "blocker",
+    "extension",
+    "chrome"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
 }
