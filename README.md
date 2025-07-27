@@ -1,4 +1,4 @@
-# YTB Shorts Blocker
+# ![Logo](https://github.com/khabzox/ytb-shorts-blocker/assets/icons/icon48.png) YTB Shorts Blocker
 
 A Chrome extension to block YouTube Shorts and keep your feed clean, built with Bun and TypeScript.
 
