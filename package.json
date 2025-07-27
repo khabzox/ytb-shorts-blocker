@@ -13,7 +13,7 @@
     "build:css": "bun run build-css.js",
     "build:manifest": "bun run create-manifest.js",
     "build:copy-files": "bun run copy-assets && bun run copy-popup-html",
-    "copy-assets": "xcopy assets dist\\assets /E /I /Y",
+    "copy-assets": "powershell -Command \"Copy-Item 'assets' 'dist\\assets' -Recurse -Force\"",
     "copy-popup-html": "powershell -Command \"Copy-Item 'src\\popup\\popup.html' 'dist\\popup\\'\"",
     "copy-background": "powershell -Command \"Copy-Item 'dist\\background\\background-clean.js' 'dist\\background\\background.js'\"",
     "dev": "bun run build --watch",

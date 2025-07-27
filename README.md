@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/icons/icon128.png" alt="Logo" width="64" height="64">
+<img src="assets/icons/icon128.png" alt="Logo" width="66" height="66" style="margin-bottom: 2.5rem;">
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Store-Coming_Soon-2d3748.svg?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![License: MIT](https://img.shields.io/badge/License-MIT-1a202c.svg?style=for-the-badge&logoColor=white&labelColor=2d3748)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/badge/Build-Passing-2d3748.svg?style=for-the-badge&logo=github&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/actions) [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-1a202c?style=for-the-badge&logo=typescript&logoColor=white&labelColor=2d3748)](https://www.typescriptlang.org/)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Store-Coming_Soon-000000.svg?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=000000)](https://chrome.google.com/webstore) [![License: MIT](https://img.shields.io/badge/License-MIT-000000.svg?style=for-the-badge&logoColor=white&labelColor=000000)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/badge/Build-Passing-000000.svg?style=for-the-badge&logo=github&logoColor=white&labelColor=000000)](https://github.com/khabzox/ytb-shorts-blocker/actions) [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-000000?style=for-the-badge&logo=typescript&logoColor=white&labelColor=000000)](https://www.typescriptlang.org/)
 
-[![Downloads](https://img.shields.io/badge/Downloads-1K+-2d3748.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![Rating](https://img.shields.io/badge/Rating-★★★★★-2d3748.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![Users](https://img.shields.io/badge/Active_Users-500+-2d3748.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=4a5568)](https://chrome.google.com/webstore) [![GitHub Repo stars](https://img.shields.io/github/stars/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=2d3748&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/stargazers) [![GitHub issues](https://img.shields.io/github/issues/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=2d3748&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/issues) [![GitHub forks](https://img.shields.io/github/forks/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=2d3748&logoColor=white&labelColor=4a5568)](https://github.com/khabzox/ytb-shorts-blocker/network)
+[![Downloads](https://img.shields.io/badge/Downloads-1K+-000000.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=000000)](https://chrome.google.com/webstore) [![Rating](https://img.shields.io/badge/Rating-★★★★★-000000.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=000000)](https://chrome.google.com/webstore) [![Users](https://img.shields.io/badge/Active_Users-500+-000000.svg?style=flat-square&logo=googlechrome&logoColor=white&labelColor=000000)](https://chrome.google.com/webstore) [![GitHub Repo stars](https://img.shields.io/github/stars/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=000000&logoColor=white&labelColor=000000)](https://github.com/khabzox/ytb-shorts-blocker/stargazers) [![GitHub issues](https://img.shields.io/github/issues/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=000000&logoColor=white&labelColor=000000)](https://github.com/khabzox/ytb-shorts-blocker/issues) [![GitHub forks](https://img.shields.io/github/forks/khabzox/ytb-shorts-blocker?style=flat-square&logo=github&color=000000&logoColor=white&labelColor=000000)](https://github.com/khabzox/ytb-shorts-blocker/network)
 
 </div>
 
@@ -14,12 +14,26 @@
 
 ## ✨ Features
 
-🎯 **Smart Detection** - Advanced algorithms to identify and block YouTube Shorts  
-⚡ **Lightning Fast** - Built with Bun for optimal performance  
-🎨 **Multiple Modes** - Hide, remove, or redirect shorts based on your preference  
-📊 **Statistics** - Track how many shorts you've blocked over time  
-🔧 **Customizable** - Whitelist channels and customize blocking behavior  
-🌙 **Clean UI** - Modern, intuitive popup interface
+### 🎯 **Core Functionality**
+- **🚫 Automatic Shorts Blocking** - Advanced algorithms to identify and block YouTube Shorts automatically
+- **⚡ Lightning Fast Performance** - Built with Bun for optimal speed and efficiency
+- **🎨 Multiple Blocking Modes** - Choose between Hide, Remove, or Redirect shorts based on your preference
+- **📊 Real-time Statistics** - Track how many shorts you've blocked over time with detailed analytics
+- **🔧 Highly Customizable** - Whitelist channels and customize blocking behavior for each page type
+- **🌙 Beautiful Modern UI** - Clean, intuitive popup interface with smooth animations
+
+### 🛡️ **Advanced Features**
+- **🎛️ Page-Specific Settings** - Control blocking on Home, Search, Subscriptions, and Trending pages
+- **🐛 Debug Mode** - Visual indicators and logging for troubleshooting
+- **📱 Responsive Design** - Works perfectly on all screen sizes and resolutions
+- **🔄 Real-time Updates** - Settings changes apply instantly without page refresh
+- **💾 Persistent Storage** - Your preferences are saved and synced across devices
+
+## 🖼️ Screenshots
+
+<img width="404" height="630" alt="image" src="/assets/images/demo1.png" align="left"  />
+
+<img width="400" height="629" alt="image" src="/assets/images/demo2.png" />
 
 ## 🚀 Quick Start
 
@@ -80,32 +94,6 @@ bun run build --watch  # Watch mode for development
 bun run lint           # Type checking
 bun run clean          # Clean dist directory
 ```
-
-### 📋 TODO List
-
-#### Phase 1: Core Functionality ✅
-
-- [x] ✅ Basic extension structure
-- [ ] 🔄 Content script for detecting shorts
-- [ ] 🔄 YouTube page navigation handling
-- [ ] 🔄 Settings storage system
-- [ ] 🔄 Multiple detection methods
-
-#### Phase 2: Enhanced Features
-
-- [ ] 📋 Popup interface for settings
-- [ ] 📋 Channel whitelist functionality
-- [ ] 📋 Different blocking modes (hide/remove/redirect)
-- [ ] 📋 Statistics tracking
-- [ ] 📋 Export/import settings
-
-#### Phase 3: Polish & Optimization
-
-- [ ] 🎨 Custom CSS themes
-- [ ] ⚡ Performance optimization
-- [ ] 🐛 Error handling and logging
-- [ ] 📧 User feedback system
-- [ ] 🌐 Multi-language support
 
 ## 🎯 Key Features to Implement
 
@@ -181,25 +169,11 @@ localStorage.setItem("ytb-debug", "true");
 6. 🚀 Push to the branch (`git push origin feature/amazing-feature`)
 7. 🎉 Open a Pull Request
 
-### Code Style Guidelines
-
-- Use TypeScript for all new code
-- Follow existing naming conventions
-- Add comprehensive TODO comments
-- Include proper error handling
-- Write meaningful commit messages
-
 ## 📊 Statistics
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/khabzox/ytb-shorts-blocker?style=flat&logo=github&color=black)
 ![GitHub last commit](https://img.shields.io/github/last-commit/khabzox/ytb-shorts-blocker?style=flat&logo=github&color=black)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/khabzox/ytb-shorts-blocker?style=flat&logo=github&color=black)
-
-## 📄 License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=flat)](https://opensource.org/licenses/MIT)
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
