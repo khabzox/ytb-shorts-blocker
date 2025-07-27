@@ -6,19 +6,24 @@
   "version": "1.0.0",
   "description": "Block YouTube Shorts and keep your feed clean",
   "scripts": {
-    "dev": "bun run build --watch",
-    "build": "bun run build:content && bun run build:background && bun run build:popup",
+    "build": "bun run build:content && bun run build:background && bun run build:popup && bun run build:tailwind && bun run build:manifest && bun run build:copy-files && bun run copy-background",
     "build:content": "bun build src/content/content.ts --outdir dist/content --minify",
-    "build:background": "bun build src/background/background.ts --outdir dist/background --minify",
+    "build:background": "bun build src/background/background-clean.ts --outdir dist/background --minify",
     "build:popup": "bun build src/popup/popup.ts --outdir dist/popup --minify",
-    "watch": "bun run build --watch",
+    "build:tailwind": "bun run build-tailwind.js",
+    "build:manifest": "bun run create-manifest.js",
+    "build:copy-files": "bun run copy-assets && bun run copy-popup-html",
+    "copy-assets": "xcopy assets dist\\assets /E /I /Y",
+    "copy-popup-html": "powershell -Command \"Copy-Item 'src\\popup\\popup.html' 'dist\\popup\\'\"",
+    "copy-background": "powershell -Command \"Copy-Item 'dist\\background\\background-clean.js' 'dist\\background\\background.js'\"",
+    "dev": "bun run build --watch",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit",
-    "test": "bun test"
+    "reload": "bun run clean && bun run build",
+    "lint": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.268",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/chrome": "^0.0.268"
   },
   "peerDependencies": {
     "typescript": "^5"

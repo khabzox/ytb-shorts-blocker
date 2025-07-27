@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Shorts Blocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="w-96 min-h-[500px] bg-gray-50 font-sans">
+  <div class="flex flex-col h-full bg-white shadow-lg">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-primary-600 to-primary-700 text-white p-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <img src="../assets/icons/icon48.png" alt="Logo" class="w-8 h-8 rounded-lg">
+          <h1 class="text-lg font-semibold">Shorts Blocker</h1>
+        </div>
+        <div id="status-indicator" class="flex items-center space-x-2 text-sm font-medium">
+          <!-- Status will be populated by JavaScript -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 overflow-y-auto">
+      <!-- Statistics Section -->
+      <section class="mb-6">
+        <h2 class="text-base font-semibold text-gray-800 mb-3 pb-2 border-b-2 border-gray-200">
+          📊 Statistics
+        </h2>
+        <div id="stats-display" class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <!-- Stats will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Settings Section -->
+      <section class="mb-4">
+        <h2 class="text-base font-semibold text-gray-800 mb-3 pb-2 border-b-2 border-gray-200">
+          ⚙️ Settings
+        </h2>
+        
+        <!-- Main Toggle -->
+        <div class="mb-5">
+          <label class="flex items-center justify-between p-3 border-b border-gray-100 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+            <span class="font-medium text-gray-700">Enable Extension</span>
+            <div class="relative cursor-pointer">
+              <input type="checkbox" id="toggle-extension" class="sr-only">
+              <div class="w-11 h-6 bg-gray-300 rounded-full transition-colors duration-200 ease-in-out toggle-switch cursor-pointer"></div>
+              <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-200 ease-in-out toggle-slider"></div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Blocking Mode -->
+        <div class="mb-5">
+          <label class="flex items-center justify-between p-3 border-b border-gray-100 hover:bg-gray-50 rounded-lg transition-colors">
+            <span class="font-medium text-gray-700">Blocking Mode</span>
+            <select id="blocking-mode" class="px-3 py-1.5 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 min-w-[140px]">
+              <option value="hide">Hide Shorts</option>
+              <option value="remove">Remove Shorts</option>
+              <option value="redirect">Redirect to Regular Video</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- Page Settings -->
+        <div class="mb-5">
+          <h3 class="text-sm font-medium text-gray-600 mb-3">Block on Pages</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="block-in-home" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Home Page</span>
+            </label>
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="block-in-search" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Search Results</span>
+            </label>
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="block-in-subscriptions" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Subscriptions</span>
+            </label>
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="block-in-trending" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Trending</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Additional Options -->
+        <div class="mb-5">
+          <h3 class="text-sm font-medium text-gray-600 mb-3">Options</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="notifications" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Show Notifications</span>
+            </label>
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="whitelist-channels" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Allow Whitelisted Channels</span>
+            </label>
+            <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+              <input type="checkbox" id="debug-mode" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2">
+              <span class="text-sm text-gray-700">Debug Mode</span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 border-t border-gray-200 bg-gray-50">
+      <div class="flex space-x-3">
+        <button id="save-settings" class="flex-1 bg-primary-600 hover:bg-primary-700 text-black hover:text-white cursor-pointer font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+          Save Settings
+        </button>
+        <button id="reset-settings" class="flex-1 bg-gray-600 hover:bg-gray-700 text-black hover:text-white cursor-pointer font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+          Reset
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
