@@ -11,6 +11,7 @@
  * @license MIT
  */
 
+
 // Types and interfaces
 export interface BlockerSettings {
   enabled: boolean;
